@@ -20,7 +20,11 @@ Built a database
 ```
 creat database opinions;
 ```
-  **Notice:** you can also look wether the database has created:
-  ```
-  show databases;
-  ```
+**Notice:** you can also look wether the database has created:
+```
+show databases;
+```
+Get in the database
+```
+use opinions:
+```
