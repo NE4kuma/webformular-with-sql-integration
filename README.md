@@ -28,3 +28,22 @@ Get in the database
 ```
 use opinions:
 ```
+Well we configuration the table
+```
+create table user_opinion (
+  id MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  reviewer_name CHAR(50),
+  details VARCHAR(4000)
+  );
+```
+Make sure that you creat a user, which 
+GRANT ALL ON reviews.* to review_site@localhost IDENTIFIED BY 'JxSLRkdutW';
+We are finshed the the database :).
+____
+## Webserver configuration 
+We have already installed apache so we only have to start and enable it
+```
+sudo systemstl apache start
+ sudo systemstl apache enable
+```
+
