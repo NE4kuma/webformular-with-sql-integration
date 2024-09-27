@@ -1,5 +1,5 @@
 # webformular-with-sql-integration
-A webformular that allows you to integrate your first and last name into the SQL database.
+A webformular that allows you to integrate your name and a review into the SQL database.
 
 
 ## Application/packages install
