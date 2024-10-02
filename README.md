@@ -7,8 +7,9 @@ Before we can start, we need to install some necessary packages
 ```
 sudo apt install php libapache2-mod-php mariadb-server apache2
 ```
+**Install also my repository**
 ```
-git clone 
+sudo git clone git@github.com:NE4kuma/webformular-with-sql-integration.git /opt
 ```
 **Notice:** If you are on a different distribution, make sure to use the correct installer.
 
