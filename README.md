@@ -7,6 +7,9 @@ Before we can start, we need to install some necessary packages
 ```
 sudo apt install php libapache2-mod-php mariadb-server apache2
 ```
+```
+git clone 
+```
 **Notice:** If you are on a different distribution, make sure to use the correct installer.
 
 ## Set SQL-Database
@@ -18,7 +21,7 @@ Now it sould looks like that
 YXYpic_1
 Built a database
 ```
-creat database opinions;
+create database opinions;
 ```
 **Notice:** you can also look wether the database has created:
 ```
@@ -26,7 +29,7 @@ show databases;
 ```
 Get in the database
 ```
-use opinions:
+use opinions;
 ```
 Well we configuration the table
 ```
@@ -36,14 +39,20 @@ create table user_opinion (
   details VARCHAR(4000)
   );
 ```
-Make sure that you creat a user, which 
-GRANT ALL ON reviews.* to review_site@localhost IDENTIFIED BY 'JxSLRkdutW';
+Make sure that you create a user, which responsible to translation the data to the Database:
+```
+GRANT ALL ON reviews.* to review_site@localhost IDENTIFIED BY 'YJy22f-44';
+```
 We are finshed the the database :).
 ____
 ## Webserver configuration 
-We have already installed apache so we only have to start and enable it
+We have already installed apache so we only have to start and enable.
 ```
 sudo systemstl apache start
- sudo systemstl apache enable
+sudo systemstl apache enable
+```
+Now we have to put 2 files on the weblocation 
+```
+mv end.php /var/www/html && mv html.php /var/www/html
 ```
 
