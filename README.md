@@ -7,14 +7,14 @@ A web form that allows users to submit their name and a review, which is then sa
 Before we begin, we need to install the necessary packages.
 
 ```bash
-sudo apt install apache2 php libapache2-mod-php php-mysql mariadb-server mariadb-client php-mysqli
+apt install apache2 php libapache2-mod-php php-mysql mariadb-server mariadb-client php-mysqli git
 ```
 **Notice:** If you're using a different Linux distribution, make sure to use the correct package manager. The steps should be similar across distributions.
 
 ## Set SQL-Database
 First we have to secure our Database
 ```
-sudo mysql_secure_installation
+mysql_secure_installation
 ```
 Use the following settings (you can adjust as needed): 
 Switch to unix_socket authentication [Y/n] `n`
@@ -23,11 +23,12 @@ Remove anonymous users? [Y/n]`n`
 Disallow root login remotely? [Y/n] `n`
 Remove test database and access to it? [Y/n]`n`
 Reload privilege tables now? [Y/n]`y`
+
 **Note**: Make sure to set a strong password for your database.
 ### Configuring the SQL Database
 Log in to the MariaDB shell:
 ```
-sudo mysql -u root -p
+mysql -u root -p
 ```
 Once logged in, create the database and tables:
 ```
@@ -64,21 +65,31 @@ rm /var/www/html/index.html
 ```
 Now install/copy my respetory
 ```
-sudo git clone YXY
+git clone git clone https://github.com/NE4kuma/webformular-with-sql-integration
 ```
+Move the important files into `/var/www/html` 
+```
+mv webformular-with-sql-integration/submit.php webformular-with-sql-integration/index.html .
+```
+
 **(Optional)** If you want to remove the README.md file from the cloned repository:
 ```
-rm README.ME
+rm -rf webformular-with-sql-integration/
 ```
 Restart and enable the Apache web server:
 ```
-sudo systemctl restart apache2
-sudo systemctl enable apache2
+systemctl restart apache2
+systemctl enable apache2
+```
+At least give the right permissen:
+```
+chown -R www-data:www-data /var/www/html/
+chmod -R 755 /var/www/html/
 ```
 ### Testing
 To verify that everything is working correctly:
 ```
-sudo mysql
+mysql
 ```
 Select the `formular_db` database:
 Go into
