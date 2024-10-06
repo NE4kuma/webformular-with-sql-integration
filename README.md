@@ -18,8 +18,8 @@ mysql_secure_installation
 ```
 Use the following settings (you can adjust as needed): 
 Switch to unix_socket authentication [Y/n] `n`
-Change the root password? [Y/n] `n` <b>
-Remove anonymous users? [Y/n]`n` <b>
+Change the root password? [Y/n] `n` 
+Remove anonymous users? [Y/n]`n` <br>
 Disallow root login remotely? [Y/n] `n`
 Remove test database and access to it? [Y/n]`n`
 Reload privilege tables now? [Y/n]`y`
