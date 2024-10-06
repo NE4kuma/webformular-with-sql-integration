@@ -1,15 +1,20 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
 <head>
-	<title>Give us your opinion!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
 </head>
 <body>
-	<p>Let us know what your opinion is.</p>
-	<form action="end.php" method="POST">
-            Your name: <input type="text" name="reviewer_name"><br><br>
-            Your review: <br>
-                <textarea name="details" rows="12" cols="25"></textarea><br><br>
-		<input type="submit" value="Submit" name="submit">
-	</form>
+    <h1>Give your Opinion!</h1>
+    <form action="submit.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="message">Review:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
+
