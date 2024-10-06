@@ -44,7 +44,7 @@ CREATE TABLE user_data (
 ```
 Create a user who will be responsible for interacting with the database:
 ```
-CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'dein_passwort';
+CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'NS!?$"31t';
 ```
 Grant the necessary permissions to the new user:
 ```
