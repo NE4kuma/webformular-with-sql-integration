@@ -16,13 +16,13 @@ First we have to secure our Database
 ```
 mysql_secure_installation
 ```
-Use the following settings (you can adjust as needed): 
-Switch to unix_socket authentication [Y/n] `n`
-Change the root password? [Y/n] `n` 
+Use the following settings (you can adjust as needed): <br>
+Switch to unix_socket authentication [Y/n] `n`<br>
+Change the root password? [Y/n] `n` <br>
 Remove anonymous users? [Y/n]`n` <br>
-Disallow root login remotely? [Y/n] `n`
-Remove test database and access to it? [Y/n]`n`
-Reload privilege tables now? [Y/n]`y`
+Disallow root login remotely? [Y/n] `n` <br>
+Remove test database and access to it? [Y/n]`n` <br>
+Reload privilege tables now? [Y/n]`y` <br>
 
 **Note**: Make sure to set a strong password for your database.
 ### Configuring the SQL Database
@@ -91,7 +91,7 @@ To verify that everything is working correctly:
 ```
 mysql
 ```
-Select the `formular_db` database:
+Select the `formular_db` database: <br>
 Go into
 ```
 USE formular_db;
@@ -114,5 +114,5 @@ MariaDB [formular_db]> select * from user_data;
 +----+-------------+---------------------+
 `````
 ## Conculution
-hopefilly everything is working. If not, please write a comment in the `ìssues` tabe. Thank you for paying attation and have a nice day :)
+hopefilly everything is working. If not, please write a comment in the `ìssues` tabe. Thank you for paying attation and have a nice day :)<br>
 ~ NeSec
