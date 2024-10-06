@@ -1,59 +1,124 @@
 # webformular-with-sql-integration
 A webformular that allows you to integrate your name and a review into the SQL database.
+**Warnig**:
 
 
 ## Application/packages install
 Before we can start, we need to install some necessary packages
 ```
-sudo apt install php libapache2-mod-php mariadb-server apache2
+sudo apt install apache2 php libapache2-mod-php php-mysql mariadb-server mariadb-client php-mysqli
 ```
-**Install also my repository**
+**Notice:** If you are on a different distribution, make sure to use the correct installer. But it should be all the same staps
+
+Go now to your `html`-directory 
 ```
-sudo git clone git@github.com:NE4kuma/webformular-with-sql-integration.git /opt
+cd /var/www/html
 ```
-**Notice:** If you are on a different distribution, make sure to use the correct installer.
+And Install also my repository**
+```
+
+```
+
 
 ## Set SQL-Database
+First we have to secure our Database
+```
+sudo mysql_secure_installation
+```
+Take my setting: 
+Switch to unix_socket authentication [Y/n] `n`
+Change the root password? [Y/n] `n`
+Remove anonymous users? [Y/n]`n`
+Disallow root login remotely? [Y/n] `n`
+Remove test database and access to it? [Y/n]`n`
+Reload privilege tables now? [Y/n]`y`
+**notice: Set a good password!**
+### SQL configuration 
 Now, we will start with the configuration of the SQL databases.
 ```
-mysql -u root -p
+sudo mysql -u root -p
 ```
 Now it sould looks like that
-YXYpic_1
-Built a database
+
+Built a database and get in threr
 ```
-create database opinions;
+CREATE DATABASE formular_db;
+USE formular_db;
 ```
-**Notice:** you can also look wether the database has created:
+Creat also the right tables:
 ```
-show databases;
+CREATE TABLE user_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL
+);
 ```
-Get in the database
+We have to define a "user" who is responsible for saving the specified information into the Sql database
 ```
-use opinions;
+CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'dein_passwort';
 ```
-Well we configuration the table
+Sure Now we are almost done, just one more thing: we have to give the right permission
 ```
-create table user_opinion (
-  id MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  reviewer_name CHAR(50),
-  details VARCHAR(4000)
-  );
+GRANT ALL PRIVILEGES ON formular_db.* TO 'webuser'@'localhost';
 ```
-Make sure that you create a user, which responsible to translation the data to the Database:
 ```
-GRANT ALL ON reviews.* to review_site@localhost IDENTIFIED BY 'YJy22f-44';
+FLUSH PRIVILEGES;
 ```
-We are finshed the the database :).
+We are finshed the the database :). You can exit
+```
+exit
+```
 ____
 ## Webserver configuration 
-We have already installed apache so we only have to start and enable.
+Bevor we start, make sure you are in the right directory and remove the default `index.html` file
 ```
-sudo systemstl apache start
-sudo systemstl apache enable
+cd /var/www/html
+rm /var/www/html/index.html
 ```
-Now we have to put 2 files on the weblocation 
+Now install/copy my respetory
 ```
-mv end.php /var/www/html && mv html.php /var/www/html
+sudo git YXY
 ```
+**Optional**: you can remove my `README.md` 
+```
+rm README.ME
+```
+We are now finished, just restart and enable the apache2 webserver 
+```
+
+```
+### Test
+If everything goes right, then you see who gives his/hers reviews.
+```
+sudo mysql
+```
+There should be a database with the name of `formular_db`.
+Go into
+```
+USE formular_db;
+```
+See what your tables
+```
+show tables;
+```
+It should be `user_data`. Now we can see what thair write
+```
+select * from user_data;
+```
+````
+MariaDB [formular_db]> select * from user_data;
++----+-------------+---------------------+
+| id | name        | message             |
++----+-------------+---------------------+
+|  1 | test        | test                |
+|  2 | Bob Johnson | Nice to meet you :) |
++----+-------------+---------------------+
+````
+ikn
+
+
+
+
+
+
 
