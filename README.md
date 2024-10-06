@@ -1,51 +1,40 @@
-# webformular-with-sql-integration
-A webformular that allows you to integrate your name and a review into the SQL database.
-**Warnig**:
+# Webformular-with-SQL-integration
+A web form that allows users to submit their name and a review, which is then saved in an SQL database.
 
+**Warning**: This project is designed for learning purposes only. It is not intended for professional use and is suitable for school or study projects.
 
-## Application/packages install
-Before we can start, we need to install some necessary packages
-```
+## Installation (Application/Package) 
+Before we begin, we need to install the necessary packages.
+
+```bash
 sudo apt install apache2 php libapache2-mod-php php-mysql mariadb-server mariadb-client php-mysqli
 ```
-**Notice:** If you are on a different distribution, make sure to use the correct installer. But it should be all the same staps
-
-Go now to your `html`-directory 
-```
-cd /var/www/html
-```
-And Install also my repository**
-```
-
-```
-
+**Notice:** If you're using a different Linux distribution, make sure to use the correct package manager. The steps should be similar across distributions.
 
 ## Set SQL-Database
 First we have to secure our Database
 ```
 sudo mysql_secure_installation
 ```
-Take my setting: 
+Use the following settings (you can adjust as needed): 
 Switch to unix_socket authentication [Y/n] `n`
 Change the root password? [Y/n] `n`
 Remove anonymous users? [Y/n]`n`
 Disallow root login remotely? [Y/n] `n`
 Remove test database and access to it? [Y/n]`n`
 Reload privilege tables now? [Y/n]`y`
-**notice: Set a good password!**
-### SQL configuration 
-Now, we will start with the configuration of the SQL databases.
+**Note**: Make sure to set a strong password for your database.
+### Configuring the SQL Database
+Log in to the MariaDB shell:
 ```
 sudo mysql -u root -p
 ```
-Now it sould looks like that
-
-Built a database and get in threr
+Once logged in, create the database and tables:
 ```
 CREATE DATABASE formular_db;
 USE formular_db;
 ```
-Creat also the right tables:
+Create a table to store the user data:
 ```
 CREATE TABLE user_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,55 +42,54 @@ CREATE TABLE user_data (
     message TEXT NOT NULL
 );
 ```
-We have to define a "user" who is responsible for saving the specified information into the Sql database
+Create a user who will be responsible for interacting with the database:
 ```
 CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'dein_passwort';
 ```
-Sure Now we are almost done, just one more thing: we have to give the right permission
+Grant the necessary permissions to the new user:
 ```
 GRANT ALL PRIVILEGES ON formular_db.* TO 'webuser'@'localhost';
-```
-```
 FLUSH PRIVILEGES;
 ```
-We are finshed the the database :). You can exit
+You have now successfully set up the database:) Exit the MariaDB shell:
 ```
 exit
 ```
 ____
-## Webserver configuration 
-Bevor we start, make sure you are in the right directory and remove the default `index.html` file
+## Web Server Configuration
+Navigate to the correct directory and remove the default `index.html` file:
 ```
 cd /var/www/html
 rm /var/www/html/index.html
 ```
 Now install/copy my respetory
 ```
-sudo git YXY
+sudo git clone YXY
 ```
-**Optional**: you can remove my `README.md` 
+**(Optional)** If you want to remove the README.md file from the cloned repository:
 ```
 rm README.ME
 ```
-We are now finished, just restart and enable the apache2 webserver 
+Restart and enable the Apache web server:
 ```
-
+sudo systemctl restart apache2
+sudo systemctl enable apache2
 ```
-### Test
-If everything goes right, then you see who gives his/hers reviews.
+### Testing
+To verify that everything is working correctly:
 ```
 sudo mysql
 ```
-There should be a database with the name of `formular_db`.
+Select the `formular_db` database:
 Go into
 ```
 USE formular_db;
 ```
-See what your tables
+Display the available tables:
 ```
-show tables;
+SHOW TABLES;
 ```
-It should be `user_data`. Now we can see what thair write
+You should see the `user_data` table.
 ```
 select * from user_data;
 ```
@@ -114,11 +102,6 @@ MariaDB [formular_db]> select * from user_data;
 |  2 | Bob Johnson | Nice to meet you :) |
 +----+-------------+---------------------+
 `````
-ikn
-
-
-
-
-
-
-
+## Conculution
+hopefilly everything is working. If not, please write a comment in the `ìssues` tabe. Thank you for paying attation and have a nice day :)
+~ NeSec
