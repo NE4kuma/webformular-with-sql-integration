@@ -45,7 +45,7 @@ CREATE TABLE user_data (
 ```
 Create a user who will be responsible for interacting with the database:
 ```
-CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'NS!?$"31t';
+CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'NS!?$';
 ```
 Grant the necessary permissions to the new user:
 ```
@@ -76,15 +76,15 @@ mv webformular-with-sql-integration/submit.php webformular-with-sql-integration/
 ```
 rm -rf webformular-with-sql-integration/
 ```
-Restart and enable the Apache web server:
-```
-systemctl restart apache2
-systemctl enable apache2
-```
 At least give the right permissen:
 ```
 chown -R www-data:www-data /var/www/html/
 chmod -R 755 /var/www/html/
+```
+Restart and enable the Apache web server:
+```
+systemctl restart apache2
+systemctl enable apache2
 ```
 ### Testing
 To verify that everything is working correctly:
