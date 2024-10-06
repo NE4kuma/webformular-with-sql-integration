@@ -2,7 +2,7 @@
 // Datenbankverbindung
 $servername = "localhost";
 $username = "webuser";
-$password = "NS!?$"31t";
+$password = "NS!?$";
 $dbname = "formular_db";
 
 // Formularinformationen erfassen
