@@ -105,7 +105,7 @@ It should be `user_data`. Now we can see what thair write
 ```
 select * from user_data;
 ```
-````
+``
 MariaDB [formular_db]> select * from user_data;
 +----+-------------+---------------------+
 | id | name        | message             |
@@ -113,7 +113,7 @@ MariaDB [formular_db]> select * from user_data;
 |  1 | test        | test                |
 |  2 | Bob Johnson | Nice to meet you :) |
 +----+-------------+---------------------+
-````
+``
 ikn
 
 
