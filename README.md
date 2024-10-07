@@ -1,3 +1,5 @@
+![2024-10-07_19-50](https://github.com/user-attachments/assets/173b2f4a-33cc-4f09-b950-85f5c351b51b)
+
 # Webformular-with-SQL-integration
 A web form that allows users to submit their name and a review, which is then saved in an SQL database.
 
