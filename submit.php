@@ -21,9 +21,9 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO user_data (name, message) VALUES ('$name', '$message')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Daten erfolgreich gespeichert!";
+    echo "Data saved successfully!";
 } else {
-    echo "Fehler: " . $sql . "<br>" . $conn->error;
+    echo "Fail: " . $sql . "<br>" . $conn->error;
 }
 
 // close connection
