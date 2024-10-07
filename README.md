@@ -45,14 +45,14 @@ CREATE TABLE user_data (
 ```
 Create a user who will be responsible for interacting with the database:
 ```
-CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'NS!?$';
+CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'NS!?s+f';
 ```
 Grant the necessary permissions to the new user:
 ```
 GRANT ALL PRIVILEGES ON formular_db.* TO 'webuser'@'localhost';
 FLUSH PRIVILEGES;
 ```
-You have now successfully set up the database:) Exit the MariaDB shell:
+You have now successfully set up the database:). You can exit the MariaDB shell:
 ```
 exit
 ```
@@ -72,7 +72,7 @@ Move the important files into `/var/www/html`
 mv webformular-with-sql-integration/submit.php webformular-with-sql-integration/index.html .
 ```
 
-**(Optional)** If you want to remove the README.md file from the cloned repository:
+**(Optional)** If you want to remove the directory (and README.md) file from the cloned repository:
 ```
 rm -rf webformular-with-sql-integration/
 ```
@@ -81,13 +81,19 @@ At least give the right permissen:
 chown -R www-data:www-data /var/www/html/
 chmod -R 755 /var/www/html/
 ```
-Restart and enable the Apache web server:
+**Recommended**: Restart and enable the Apache web server:
 ```
 systemctl restart apache2
 systemctl enable apache2
 ```
 ### Testing
-To verify that everything is working correctly:
+To verify that everything is working correctly.<br>
+First, open your browser and type:
+```
+http://localhost
+```
+Give whatever you want (as an example). <br>
+Now we want to see the information we entered, so write:
 ```
 mysql
 ```
@@ -104,6 +110,7 @@ You should see the `user_data` table.
 ```
 select * from user_data;
 ```
+**OUTPUT**: should be like that:
 `````
 MariaDB [formular_db]> select * from user_data;
 +----+-------------+---------------------+
@@ -114,5 +121,5 @@ MariaDB [formular_db]> select * from user_data;
 +----+-------------+---------------------+
 `````
 ## Conculution
-hopefilly everything is working. If not, please write a comment in the `ìssues` tabe. Thank you for paying attation and have a nice day :)<br>
+Hopefully, everything is working. If not, please leave a comment in the Issues tab. Thank you for paying attention, and have a nice day :)<br>
 ~ NeSec
