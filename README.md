@@ -2,6 +2,7 @@
 A web form that allows users to submit their name and a review, which is then saved in an SQL database.
 
 **Warning**: This project is designed for learning purposes only. It is not intended for professional use and is suitable for school or study projects.
+**Recommended**: Log in as root, because many of the commands need root privileges. If not, make sure to type `sudo` before every command.
 
 ## Installation (Application/Package) 
 Before we begin, we need to install the necessary packages.
@@ -9,7 +10,7 @@ Before we begin, we need to install the necessary packages.
 ```bash
 apt install apache2 php libapache2-mod-php php-mysql mariadb-server mariadb-client php-mysqli git
 ```
-**Notice:** If you're using a different Linux distribution, make sure to use the correct package manager. The steps should be similar across distributions.
+**Notice:** If you're using a different Linux distribution, make sure to use the correct `package manager`. The steps should be similar across distributions.
 
 ## Set SQL-Database
 First we have to secure our Database
