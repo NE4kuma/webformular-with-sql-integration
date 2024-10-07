@@ -1,23 +1,23 @@
 <?php
-// Datenbankverbindung
+// database connection/ variables
 $servername = "localhost";
 $username = "webuser";
-$password = "NS!?$";
+$password = "NS!?s+f";
 $dbname = "formular_db";
 
-// Formularinformationen erfassen
+// Enter form information
 $name = $_POST['name'];
 $message = $_POST['message'];
 
-// Verbindung zur Datenbank herstellen
+// Establishing a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verbindung überprüfen
+// Check connection
 if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
 
-// SQL-Abfrage vorbereiten und ausführen
+// Prepare and execute SQL query
 $sql = "INSERT INTO user_data (name, message) VALUES ('$name', '$message')";
 
 if ($conn->query($sql) === TRUE) {
@@ -26,7 +26,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Fehler: " . $sql . "<br>" . $conn->error;
 }
 
-// Verbindung schließen
+// close connection
 $conn->close();
 ?>
-
