@@ -1,7 +1,7 @@
 # Webformular-with-SQL-integration
 A web form that allows users to submit their name and a review, which is then saved in an SQL database.
 
-**Warning**: This project is designed for learning purposes only. It is not intended for professional use and is suitable for school or study projects.
+**Warning**: This project is designed for learning purposes only. It is not intended for professional use and is suitable for school or study projects. <br>
 **Recommended**: Log in as root, because many of the commands need root privileges. If not, make sure to type `sudo` before every command.
 
 ## Installation (Application/Package) 
